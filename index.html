@@ -1,68 +1,419 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Welcome To Sorting Hat!</title>
-<body>
-<style>
-            body { font-family: "Impact";
-              color: SpringGreen;
-              background-image: url("hogwarts_flag_by_kooro_sama-d3x9qa1.png");
-              background-color: (0,255,0);
-            }
-            .button {
-  padding: 50px 50px;
-  font-size: 40px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-}
-.button:hover {background-color: #3e8e41}
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
+<html><head>
+	<meta name="Author" content="Dean Tersigni">
+	<title>Harry Potter - Sorting Hat House Quiz</title>
+	<style>
+		BODY
+		{
+			SCROLLBAR-FACE-COLOR: #FFFF00;
+			SCROLLBAR-ARROW-COLOR: #5000A0;
+			SCROLLBAR-TRACK-COLOR: #B09000;
+			SCROLLBAR-3DLIGHT-COLOR: #FFFF80;
+			SCROLLBAR-HIGHLIGHT-COLOR: #FFFF80;
+			SCROLLBAR-SHADOW-COLOR: #909000;
+			SCROLLBAR-DARKSHADOW-COLOR: #909000;
+			font-family: Arial, Helvectia;
+		}
 
-.avatar {
-    display: block;
-    border-radius: 200px;
-    box-sizing: border-box;
-    background-color: SpringGreen;
-    border: 5px solid #7FFFD4;
-}
-img {
-    height: 400px;
-    width: 420px
-}
-.box {
-    width: 200px; height: 200px;
-    background: #666;
- 
-    border-top-left-radius: 15em 1em;
-    border-bottom-right-radius: 15em 1em;
- 
-}
-</style>
+		HR
+		{
+			color: #FFFF00;
+		}
+
+		H1
+		{
+			font-size:24px;
+		}
+
+		TD
+		{
+			font-size:10pt;
+			vertical-align:top;
+			margin:0px;
+			padding:0px;
+		}
+	</style>
+
+	<script>
+		function Sort()
+		{
+			var nHouseG = 0;
+			var nHouseH = 0;
+			var nHouseR = 0;
+			var nHouseS = 0;
+
+			if(HPQuiz.q1[0].checked == true)
+				{nHouseG+=1; nHouseS+=2;}
+			else if(HPQuiz.q1[1].checked == true)
+				{nHouseG+=1; nHouseS+=1;}
+			else if(HPQuiz.q1[2].checked == true)
+				{nHouseH+=1; nHouseG+=1; nHouseR+=1;}
+			else if(HPQuiz.q1[3].checked == true)
+				{nHouseH+=1; nHouseR+=2;}
+			else if(HPQuiz.q1[4].checked == true)
+				{nHouseH+=1; nHouseR+=1;}
+			else
+				{alert("Please answer question 1."); return;}
+
+			if(HPQuiz.q2[0].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=1;}
+			else if(HPQuiz.q2[1].checked == true)
+				{nHouseG+=1; nHouseS+=1;}
+			else if(HPQuiz.q2[2].checked == true)
+				{nHouseG+=1; nHouseH+=2; nHouseR+=1;}
+			else if(HPQuiz.q2[3].checked == true)
+				{nHouseH+=2; nHouseR+=2;}
+			else
+				{alert("Please answer question 2."); return;}
+
+			if(HPQuiz.q3[0].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q3[1].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q3[2].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q3[3].checked == true)
+				{nHouseG+=1; nHouseS+=1;}
+			else if(HPQuiz.q3[4].checked == true)
+				{nHouseG+=1; nHouseS+=2;}
+			else
+				{alert("Please answer question 3."); return;}
+
+			if(HPQuiz.q4[0].checked == true)
+				{nHouseH+=2; nHouseR+=1;}
+			else if(HPQuiz.q4[1].checked == true)
+				{nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q4[2].checked == true)
+				{nHouseG+=2; nHouseR+=1;}
+			else if(HPQuiz.q4[3].checked == true)
+				{nHouseG+=2;}
+			else if(HPQuiz.q4[4].checked == true)
+				{nHouseS+=2;}
+			else
+				{alert("Please answer question 4."); return;}
+
+			if(HPQuiz.q5[0].checked == true)
+				{nHouseG+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q5[1].checked == true)
+				{nHouseS+=1;}
+			else if(HPQuiz.q5[2].checked == true)
+				{nHouseG+=1; nHouseR+=1; nHouseS+=2;}
+			else if(HPQuiz.q5[3].checked == true)
+				{nHouseG+=1; nHouseH+=2; nHouseR+=1;}
+			else if(HPQuiz.q5[4].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=2;}
+			else
+				{alert("Please answer question 5."); return;}
+
+			if(HPQuiz.q6[0].checked == true)
+				{nHouseG+=2; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q6[1].checked == true)
+				{nHouseG+=2; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q6[2].checked == true)
+				{nHouseH+=1; nHouseR+=1;}
+			else if(HPQuiz.q6[3].checked == true)
+				{nHouseG+=1; nHouseH+=2; nHouseR+=1;}
+			else if(HPQuiz.q6[4].checked == true)
+				{nHouseG+=1; nHouseH+=2; nHouseR+=2;}
+			else
+				{alert("Please answer question 6."); return;}
+
+			if(HPQuiz.q7[0].checked == true)
+				{nHouseG+=1; nHouseR+=1; nHouseS+=2;}
+			else if(HPQuiz.q7[1].checked == true)
+				{nHouseG+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q7[2].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=1;}
+			else if(HPQuiz.q7[3].checked == true)
+				{nHouseG+=1; nHouseH+=2; nHouseR+=1;}
+			else if(HPQuiz.q7[4].checked == true)
+				{nHouseG+=1; nHouseH+=2; nHouseR+=1;}
+			else if(HPQuiz.q7[5].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=2;}
+			else
+				{alert("Please answer question 7."); return;}
+
+			if(HPQuiz.q8[0].checked == true)
+				{nHouseH+=2; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q8[1].checked == true)
+				{nHouseG+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q8[2].checked == true)
+				{nHouseG+=2; nHouseR+=1; nHouseS+=1;}
+			else
+				{alert("Please answer question 8."); return;}
+
+			if(HPQuiz.q9[0].checked == true)
+				{nHouseH+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q9[1].checked == true)
+				{nHouseH+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q9[2].checked == true)
+				{nHouseR+=1; nHouseS+=2;}
+			else if(HPQuiz.q9[3].checked == true)
+				{nHouseH+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q9[4].checked == true)
+				{nHouseG+=2; nHouseR+=1; nHouseS+=1;}
+			else
+				{alert("Please answer question 9."); return;}
+
+			if(HPQuiz.q10[0].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q10[1].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q10[2].checked == true)
+				{nHouseG+=1; nHouseS+=1;}
+			else if(HPQuiz.q10[3].checked == true)
+				{nHouseG+=1; nHouseH+=2; nHouseR+=1;}
+			else if(HPQuiz.q10[4].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=2;}
+			else if(HPQuiz.q10[5].checked == true)
+				{nHouseG+=1; nHouseR+=1; nHouseS+=2;}
+			else
+				{alert("Please answer question 10."); return;}
+
+			if(HPQuiz.q11[0].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseS+=1;}
+			else if(HPQuiz.q11[1].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q11[2].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q11[3].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=2; nHouseS+=1;}
+			else
+				{alert("Please answer question 11."); return;}
+
+			if(HPQuiz.q12[0].checked == true)
+				{nHouseG+=1; nHouseR+=1; nHouseS+=2;}
+			else if(HPQuiz.q12[1].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=1; nHouseS+=2;}
+			else if(HPQuiz.q12[2].checked == true)
+				{nHouseG+=1; nHouseH+=1; nHouseR+=1; nHouseS+=1;}
+			else if(HPQuiz.q12[3].checked == true)
+				{nHouseG+=1; nHouseR+=1; nHouseH+=2; nHouseS+=1;}
+			else
+				{alert("Please answer question 12."); return;}
+
+			location.href = "./Quiz-House-Results.html?" + nHouseG + "&" + nHouseH + "&" + nHouseR + "&" + nHouseS;
+		}
+	</script>
 </head>
-  <h1><center>WELCOME TO THE SORTING HAT!</center></h1>
-  <center><img src="Unknown.png" style="width:500px;height:200px;"></center>
-<center><a href="http://think-ink.github.io/trading"><button class="button">Click Me To Get Sorted!</button></a></center>
-<p>       
-         
-         </p>
+<body text="#FFFFFF" bgcolor="#200040" link="#FFFF00" vlink="#A0A000" alink="#FFFFFF" background="">
 
-<center><img class="avatar" src="https://49.media.tumblr.com/fe41af066de5a7c358d454f9b3225714/tumblr_mj04oa9dih1s5pk7xo1_400.gif"></center>
+<table width="760" align="center"><tbody><tr><td>
 
-<h1><center><marquee scrollamount="20">Welcome! Today, you will be put into one of the four houses in Hogwarts!  Slytherin, Ravenclaw, Hufflepuff, or Gryfindor!</h1></center></marquee>
+<table style="width:100%;">
+	<tbody><tr>
+		<td>
+			<p align="center"><img src="../Images/Title.gif" width="408" height="135" alt="Harry Potter"></p>
+		</td>
+	</tr>
 
-<center><img class="box" src="funny-gif2.gif"></center>
+	<tr>
+		<td style="vertical-align:top;">
+			<table width="100%" border="3" bordercolorlight="#5000A0" bordercolordark="#200040" bgcolor="#300060"><tbody><tr><td style="padding:10px;">
+
+			<h1>Hogwarts House Sorting Quiz<hr></h1>
+
+			<img src="../Images/HogwartsSeal.gif" style="width:200px; height:212px; margin-left:10pt; float:right;" title="Hogwarts Seal">
+
+			<p align="justify">I know what you're all thinking, "Not -another- sorting quiz!", but before you get bored and leave, let me say a few things about it. 
+			This is not the ordinary sorting quiz that you're used to. Unlike all those other quizzes infesting the Internet, this quiz actually sorts you for who 
+			you are as a person, not because your favorite animal is a lion.</p>
+
+			<p align="justify">I made this quiz as a reaction to all the bad sorting quizzes. The problem with most of the existing quizzes, is that the questions 
+			rarely have anything to do with which house you would actually be sorted into. Your favorite color doesn't effect which house you belong to. Not every 
+			Gryffindor likes defense against the dark arts, not every Slytherin likes potions. Just look at Harry, Ron, and Hermione. Each is in Gryffindor, but 
+			each has a completely different disposition. Harry's father was often a bully and a thief, yet he was still in Gryffindor.</p>
+
+			<p align="justify">This quiz will actually ask you psychological questions with a variety of answers that can't easily be determined as to which house 
+			they fit into. This was meant to be more like what the Sorting Hat does. Just remember though that you must answer these questions truthfully in order 
+			to get an accurate answer.</p>
+
+			<p align="justify">Also these questions are written to take place in our world, not the world of Harry Potter. I didn't give a Harry Potter theme to the 
+			quiz because the answers are more accurate this way. As Muggles, we don't have any idea what it's like to be faced with a troll or a bogart and we've 
+			never played quiddich. Our answers may be skewed as to how our favorite characters would act instead of ourselves. However, we all know what it's like 
+			to live in the Muggle world because we do it every day.</p>
+
+			<p align="justify">So anyway, without further ado.</p>
+
+			<hr>
+
+			<form name="HPQuiz">
+
+			<p><b>1.) You are given a test at school that has questions that teacher hasn't covered yet. In the middle of the test you notice that your friend next to you has a cheat-sheet. The teacher doesn't notice.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q1" value="1"></td><td>Ask to share the cheat-sheet. This test isn't fair, so why should you be?</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q1" value="2"></td><td>Good for them, they beat the system.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q1" value="3"></td><td>Confront them after the test and try to convince them not to cheat anymore. You don't want them to get in trouble.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q1" value="4"></td><td>Confront them after the test and force them to tell the teacher they cheated, or you will tell on them. They must pay for their misdeeds.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q1" value="5"></td><td>Inform the teacher right in the middle of class that they are cheating. Cheaters never prosper!</td>
+			</tr></tbody></table></p>
+
+			<br>
+
+			<p><b>2.) While walking down the street you see a wallet on the side of the road. It has a small amount of money in it, but no identification of any kind. There is nobody in sight.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q2" value="1"></td><td>Leave it there. Someone is probably looking for it.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q2" value="2"></td><td>Pocket the money. You don't know who it belongs to, so finder's keepers.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q2" value="3"></td><td>Take it to the police in case anyone ever reports it.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q2" value="4"></td><td>Take the wallet, and go around the area asking anyone if they have lost a wallet recently.</td>
+			</tr></tbody></table></p>
+
+			<br>
+
+			<p><b>3.) Someone has played a prank on you which involves your public embarrassment and everyone begins laughing at you. However, you doubt they meant any harm by it.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q3" value="1"></td><td>Laugh along with the crowd. You love a good joke even if it's at your expense.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q3" value="2"></td><td>On the outside you'll laugh because you don't want anyone to know that they really hurt your feelings by making you look stupid in front of everybody.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q3" value="3"></td><td>You get upset and run away from the crowd. How could they be so mean?</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q3" value="4"></td><td>That jerk! You get mad right away and tell it to their face.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q3" value="5"></td><td>Pretend that all is well, but you won't forget this. They're going to pay for what they did! How dare they publicly humiliate you.</td>
+			</tr></tbody></table></p>
+
+			<br>
+
+			<p><b>4.) You have arrived late to work because you had a flat tire. You've been on time every other day for the past month, yet your boss yells at you about it in front of all your coworkers.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q4" value="1"></td><td>Endure his yelling, he is my boss after all.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q4" value="2"></td><td>Let him yell, it doesn't matter anyway, you're not listening.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q4" value="3"></td><td>Explain to him that accidents happen and that you don't feel you need to be yelled at because of it.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q4" value="4"></td><td>Yell right back at him! How dare he insult you for something so petty.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q4" value="5"></td><td>Allow him to yell all he wants, you'll just let the air out of his tires someday.</td>
+			</tr></tbody></table></p>
+
+			<br>
+
+			<p><b>5.) You have just returned home from a long day's work when a friend calls you and explains that they are stranded on a back road an hour drive from town and they need you to pick them up. They've already tried everyone else and you are their only means of getting back.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q5" value="1"></td><td>I'm too tired. Tell them to try to flag down a car to help them out.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q5" value="2"></td><td>I'm too tired. Make up a lie about why you can't help them.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q5" value="3"></td><td>I'll do it, but I'm charging them for gas money.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q5" value="4"></td><td>Yes, I'm tired, but what are friends for?</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q5" value="5"></td><td>Ask them what's wrong with the car. Maybe you can talk them through how to fix it.</td>
+			</tr></tbody></table></p>
+
+			<br>
+
+			<p><b>6.) A little kid accuses you, in front of a whole crowd people, of stealing his toy which you did not do. You are twice his size, but he won't back off.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q6" value="1"></td><td>How dare he insult me in front of all these people? I'll show him how things work in the real world!</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q6" value="2"></td><td>Explain to him that I didn't take his toy and give him fair warning that he'll have a black eye if he doesn't drop it.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q6" value="3"></td><td>Try to rationalize with the kid. Tell him you didn't take the toy and refuse to fight him even if he takes a few swings at you.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q6" value="4"></td><td>Tell him you didn't take the toy and direct him to someone who can help him find it.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q6" value="5"></td><td>Explain to him you didn't take the toy and offer to personally help find the person who did.</td>
+			</tr></tbody></table></p>
+
+			<br>
+
+			<p><b>7.) You have saved up for months to buy a new bike. As you're getting ready to buy it, a child runs by and steals your money. You chase him down and find that his mother is deathly ill and the child stole the money to buy her medicine.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q7" value="1"></td><td>That's their problem, I didn't get the lady sick. I worked hard for that money and it's mine.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q7" value="2"></td><td>Perhaps you would have helped them if they were to ask, but you don't help thieves.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q7" value="3"></td><td>Maybe I'll let them keep some of the money and buy the bike later.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q7" value="4"></td><td>They are obviously in need of the money more than I. I give it all to them.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q7" value="5"></td><td>I'll give them the money and try and nurse the mother back to health.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q7" value="6"></td><td>Refuse to give them your money, but still try and nurse the mother back to health.</td>
+			</tr></tbody></table></p>
+
+			<br>
+
+			<p><b>8.) A friend of yours tells you that there is some really cool stuff in an old abandoned building. When you get there you see a sign that "Danger: Do not enter!", but the building doesn't look dangerous. There is nobody around to see you, and your friend wants to check it out.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q8" value="1"></td><td>Obviously there is some dangerous stuff in there, and we shouldn't be going inside.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q8" value="2"></td><td>Maybe I'll just take a peek inside for a little while. What could it hurt?</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q8" value="3"></td><td>Danger shmanger! There's probably some cool stuff inside. Let's see what all the fuss is about.</td>
+			</tr></tbody></table></p>
+
+			<br>
+
+			<p><b>9.) A very strong man approaches you while you're eating lunch and demands that you give him some food. He doesn't appear to be starving or poor. There is nobody there to stop him from taking it.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q9" value="1"></td><td>Give him some food and leave quickly. You don't want any trouble from a jerk like that.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q9" value="2"></td><td>Give him some food and leave. But you're going to tell on him later.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q9" value="3"></td><td>Give him some food and follow him to his house so you can later get him back by doing something rather nasty.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q9" value="4"></td><td>Give him half your food and invite him to sit and talk with you, maybe you can befriend him.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q9" value="5"></td><td>Give him a nice fist in the face. Nobody steals from you.</td>
+			</tr></tbody></table></p>
+
+			<br>
+
+			<p><b>10.) You have inherited a large sum of money from your great aunt.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q10" value="1"></td><td>Put it all into a savings account and spend it wisely as needs present themselves.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q10" value="2"></td><td>Buy a few things right away. Maybe a new car, a boat, a house, etc. The rest I'll put away for a rainy day.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q10" value="3"></td><td>Spend it all on something really big and eccentric. You can't take it with you right?</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q10" value="4"></td><td>Donate it to the sick, injured, and poor.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q10" value="5"></td><td>Donate it to science, research, and development.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q10" value="6"></td><td>Invest it into the market. You'll soon have even more!</td>
+			</tr></tbody></table></p>
+
+			<br>
+
+			<p><b>11.) You are given a small plastic puzzle that looks to be difficult to solve.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q11" value="1"></td><td>I have better things to do than play with toys.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q11" value="2"></td><td>I'll try it out, but if I can't solve it, it's not the end of the world.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q11" value="3"></td><td>I'll put some time into it. I'm sure I could solve it eventually.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q11" value="4"></td><td>I won't give up until I solve it. Then, maybe I'll try it blindfolded!</td>
+			</tr></tbody></table></p>
+
+			<br>
+
+			<p><b>12.) Five years ago a girl stole some money from you and she never got in trouble for it. Since then, she has become a much better person. Recently she has been arrested for stealing, but you can prove that she is innocent.</b></p>
+			<p><table style="width:100%;">
+			<tbody><tr><td style="width:25px;"><input type="radio" name="q12" value="1"></td><td>I'm not saying a thing. This is the punishment that she never got five years ago.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q12" value="2"></td><td>Tell her that I'll save her, provided she pays me back the money she owes me.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q12" value="3"></td><td>I'll save her because I know she's a better person now.</td>
+			</tr><tr><td style="width:25px;"><input type="radio" name="q12" value="4"></td><td>I'd save her even if she was still a bad person because I know she is innocent this time.</td>
+			</tr></tbody></table></p>
+
+			<hr>
+
+			<p>&nbsp;</p>
+
+			<p style="text-align:center;"><img src="../Images/Button-SortMe.png" style="border:none; width:250px; height:50px;" title="Sort Me" onclick="Sort();"></p>
+
+			</form>
+
+			<p>&nbsp;</p>
+
+			<hr>
+
+			<p style="text-align:center;"><a href="../../../Quizzes/Index.html"><img src="../Images/Button-Quizzes.png" style="border:none; width:150px; height:30px;" title="More Quizzes"></a></p>
+
+			<p style="text-align:center;"><a href="../HP-Extras.html"><img src="../Images/Button-Back.png" style="border:none; width:150px; height:30px;" title="Back"></a></p>
+
+			</td></tr></tbody></table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<br>
+			<p align="center"><i><font size="1">© Copyright 2004-2005: Dean Tersigni. All rights reserved.</font></i></p>
+		</td>
+	</tr>
+</tbody></table>
+
+</td></tr></tbody></table>
+
+<!--
+
+   G H R S
+01 2 3 4 3
+02 3 5 4 1
+03 5 3 3 6
+04 4 2 3 3
+05 4 3 5 4
+06 6 5 6 2
+07 6 6 7 3
+08 3 2 3 3
+09 2 3 5 6
+10 6 5 6 5
+11 4 4 4 4
+12 4 4 4 6
+
+49,45,54,46
+
+--/!>
+
 </body>
-</html>
-
+</html>--></body></html>
